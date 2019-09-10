@@ -23,5 +23,5 @@ int main()
 {
     char src[8] = "12345:65";
     char dest[10];
-    ft_memccpy(dest, src, ':', 8);    
+    ft_memccpy(dest, src, ':', 8); 
 }
