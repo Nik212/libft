@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 11:03:18 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 12:18:28 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/11 10:43:02 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/11 10:45:46 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+void	*ft_memset(void *data, int c, int len)
 {
-	char *d;
-	char *s;
-	char *lastd;
-	char *lasts;
+	int		i;
+	char	*p;
 
-	d = dest;
-	s = src;
-	if (d < s)
+	p = data;
+	i = 0;
+	while (len > 0)
 	{
-		while (len--)
-			*d++ = *s++;
+		*p = c;
+		p++;
+		len--;
 	}
-	else
-	{
-		lasts = s + (len - 1);
-		lastd = d + (len - 1);
-		while (len--)
-			*lastd-- = *lasts--;
-	}
-	return (dest);
+	return (p);
 }
