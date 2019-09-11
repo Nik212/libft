@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:19:45 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 18:30:29 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/11 18:39:33 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	*ft_strnew(size_t size);
 void	ft_strdel(char **as);
 void	ft_strclr(char *s);
 void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
