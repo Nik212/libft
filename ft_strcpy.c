@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:32:21 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 13:35:35 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/11 17:54:03 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strcpy(char *dest, const char *src)
 	int i;
 
 	i = 0;
-	while (src[i])
+	while (src[i++])
 		dest[i] = src[i];
 	dest[i] = '\0';
 	return (dest);
