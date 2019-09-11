@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 10:43:02 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 16:19:41 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/11 15:35:21 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/11 15:38:20 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memset(void *data, int c, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*p;
+	int i;
 
-	p = data;
-	while (len > 0)
+	i = 0;
+	if (s && f)
 	{
-		*p = c;
-		p++;
-		len--;
+		while (s[i])
+			(*f)(i, &s[i++]);
 	}
-	return (p);
 }

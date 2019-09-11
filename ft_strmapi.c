@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 10:43:02 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 16:19:41 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/11 16:22:39 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/11 16:30:40 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *data, int c, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*p;
+	size_t		len;
+	size_t		i;
+	char	*new_string;
 
-	p = data;
-	while (len > 0)
+	new_string = 0;
+	len = ft_strlen(s);
+	if (s && f)
 	{
-		*p = c;
-		p++;
-		len--;
+		new_string = ft_strnew(len);
+		while (s[i])
+		{
+			new_string[i] = s[i];
+			printf(new_string[i++]);
+		}
 	}
-	return (p);
 }
