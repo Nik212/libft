@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 15:39:45 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 16:19:40 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/11 16:57:35 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	size_t	i;
 	char	*new_string;
 
+	new_string = 0;
 	if (s && f)
 	{
 		len = ft_strlen(s);
@@ -25,8 +26,9 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		i = 0;
 		while (len--)
 		{
-			new_string[i] = f(s[i++]);
+			new_string[i] = f(s[i]);
+			i++;
 		}
-		return (new_string);
 	}
+	return (new_string);
 }

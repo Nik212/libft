@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 12:13:12 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 12:14:25 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/11 16:56:44 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	char *ptr;
+	const char *ptr;
 	char *lastn;
 
-	lastn = NULL;
+	lastn = 0;
 	ptr = str;
-	while (*ptr != NULL && *ptr != c)
+	while (*ptr != 0 && *ptr != c)
 		ptr++;
-	if (*ptr == NULL)
-		return (ptr);
+	if (*ptr == 0)
+		return ((void *)ptr);
 	while (n-- && lastn != ptr)
 	{
-		lastn = str + (n - 1);
+		lastn = (char *)str + (n - 1);
 		lastn--;
 	}
-	return (ptr);
+	return ((void *)ptr);
 }
