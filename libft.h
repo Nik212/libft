@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:19:45 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 23:20:07 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/12 16:11:38 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int	ft_strequ(char const *s1, char const *s2);
 int	ft_strnequ(char const *s1, char const *s2, size_t n);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
 
 #endif
