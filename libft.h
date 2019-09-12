@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: slupe <slupe@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:19:45 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 18:42:04 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/11 23:20:07 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int	ft_strequ(char const *s1, char const *s2);
+int	ft_strnequ(char const *s1, char const *s2, size_t n);
 
 #endif
