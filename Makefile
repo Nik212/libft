@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: slupe <slupe@student.42.fr>                +#+  +:+       +#+         #
+#    By: slupe <slupe@student.21-school.ru>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/11 16:31:44 by slupe             #+#    #+#              #
-#    Updated: 2019/09/11 17:04:39 by slupe            ###   ########.fr        #
+#    Updated: 2019/09/12 15:47:33 by slupe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDES = libft.h
+INCLUDES = /libft.h
 
 FILES = ft_*.c
 
