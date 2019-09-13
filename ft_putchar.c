@@ -6,13 +6,13 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 16:19:03 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/13 16:19:31 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/13 16:40:57 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
