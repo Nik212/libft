@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 15:39:45 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 16:57:35 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/13 17:08:10 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	{
 		len = ft_strlen(s);
 		new_string = (char *)malloc(sizeof(char) * len + 1);
+		if (!(new_string))
+			return (0);
 		i = 0;
-		while (len--)
+		while (s[i] != '\0')
 		{
 			new_string[i] = f(s[i]);
 			i++;
 		}
+		new_string[i] = '\0';
 	}
 	return (new_string);
 }
