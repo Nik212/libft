@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:43:02 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 18:31:38 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/13 17:01:21 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	*ft_memset(void *data, int c, size_t len)
 {
-	unsigned char *p;
-	unsigned char letter;
+	char	*str;
+	size_t	i;
 
-	letter = (unsigned char)c;
-	p = (unsigned char *)data;
-	while (len--)
+	str = (char *)data;
+	i = 0;
+	while (i < len)
 	{
-		*p++ = letter;
+		str[i] = (unsigned char)c;
+		i++;
 	}
-	return (p);
+	return (data);
 }
