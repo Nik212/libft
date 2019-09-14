@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 14:16:15 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 14:19:19 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/14 17:19:32 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@ char	*ft_strnew(size_t size)
 	char *ptr;
 
 	ptr = (char *)ft_memalloc(size + 1);
+	if (!ptr)
+		return (0);
 	return (ptr);
 }
