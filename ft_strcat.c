@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 11:01:31 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/14 17:02:46 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/14 16:37:27 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/14 16:40:31 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t len)
+char	*ft_strcat(char *dest, const char *src)
 {
-	char *dst;
-	char *s;
-
-	if (dest == NULL || src == NULL)
-		return (NULL);
-	dst = (char *)dest;
-	s = (char *)src;
-	while (len--)
-		*dst++ = *s++;
+	ft_strcpy(dest + ft_strlen(dest), src);
 	return (dest);
 }
