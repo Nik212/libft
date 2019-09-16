@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 10:43:02 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/16 16:26:05 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/16 15:34:50 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/16 16:26:02 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *data, int c, size_t len)
+int	ft_atoi(const char *str)
 {
-	char	*str;
-	size_t	i;
+	int	res;
+	int	negative;
 
-	str = (char *)data;
-	i = 0;
-	while (i < len)
+	negative = 1;
+	res = 0;
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
+			*str == '\v' || *str == '\f' || *str == '\r'))
+		++str;
+	if (*str == '-')
+		negative = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (*str && *str >= '0' && *str <= '9')
 	{
-		str[i] = (unsigned char)c;
-		i++;
+		res = res * 10 + (*str - 48);
+		++str;
 	}
-	return (data);
+	return (res * negative);
 }

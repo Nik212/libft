@@ -6,53 +6,77 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:43:45 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/14 16:34:08 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/16 15:34:13 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		num_words(char const *str, char c)
+static char	**ft_createtab_strsplit(char const *s, char c)
 {
-	size_t	prev_letter;
-	size_t	count;
+	int		i;
+	int		count;
 
+	i = 0;
 	count = 0;
-	prev_letter = 0;
-	while (*str)
+	while (s[i])
 	{
-		if (*str == c && prev_letter == 0)
+		if (s[i] != c)
+		{
 			count++;
-		prev_letter = (*str == c) ? 0 : 1;
-		str++;
+			while (s[i] != c && s[i + 1] != '\0')
+				i++;
+		}
+		i++;
 	}
-	return (count);
+	return ((char **)malloc(sizeof(char *) * count + 1));
 }
 
-char	**ft_strsplit(char const *s, char c)
+static char	*ft_returnstr_strsplit(char *tmp, char c)
 {
-	char **array;
-	size_t ar_idx;
-	size_t prev_letter;
-	size_t i;
-	size_t start;
+	int		i;
 
-	if (!s)
-		return (0);
-	if (!(array = (char **)ft_memalloc(num_words(s, c) * sizeof(char *))))
-		return (0);
-	i = -1;
-	prev_letter = 0;
-	ar_idx = 0;
-	while (s[i++])
+	i = 0;
+	while (tmp[i])
 	{
-		if (prev_letter && s[i] == c)
-			array[ar_idx++] = ft_strsub(s, start, i - start);
-		if (!prev_letter && s[i] != c)
-			start = i;
-		prev_letter = (s[i] == c) ? 0 : 1;
+		if (tmp[i] == c)
+			tmp[i] = '\0';
+		i++;
 	}
-	if (prev_letter)
-		array[ar_idx] = ft_strsub(s, start, i - start);
-	return (array);
+	return (tmp);
+}
+
+static void	ft_putnull(int i[3])
+{
+	i[0] = 0;
+	i[1] = 0;
+}
+
+char		**ft_strsplit(char const *s, char c)
+{
+	char	**result;
+	char	*tmp;
+	int		i[3];
+
+	if (s == NULL)
+		return (NULL);
+	tmp = ft_strdup(s);
+	i[2] = ft_strlen(s);
+	if (!(result = ft_createtab_strsplit(s, c)))
+		return (NULL);
+	tmp = ft_returnstr_strsplit(tmp, c);
+	ft_putnull(i);
+	while (i[0] < i[2])
+	{
+		if (!tmp[i[0]])
+			i[0]++;
+		else
+		{
+			result[i[1]] = ft_strdup(&tmp[i[0]]);
+			i[1]++;
+			i[0] += ft_strlen(&tmp[i[0]]);
+		}
+	}
+	result[i[1]] = NULL;
+	return (result);
 }
