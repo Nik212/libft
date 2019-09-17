@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 14:16:15 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/17 17:01:22 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/17 15:11:33 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/17 15:56:52 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	*ft_memccpy(void *dest, void *src, int c, size_t n)
 {
-	char *ptr;
+	size_t			i;
+	unsigned char	*dst;
+	unsigned char	*s;
 
-	ptr = (char *)ft_memalloc(size + 1);
-	if (!ptr)
-		return (0);
-	return (ptr);
+	i = 0;
+	dst = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	while (i < n)
+	{
+		dst[i] = s[i];
+		if (s[i] == ((unsigned char)c))
+			return ((void *)(dest + 1 + i));
+		i++;
+	}
+	return (NULL);
 }

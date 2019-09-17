@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 14:16:15 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/17 17:01:22 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/17 15:05:40 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/17 15:06:33 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+int	ft_toupper(int c)
 {
-	char *ptr;
-
-	ptr = (char *)ft_memalloc(size + 1);
-	if (!ptr)
-		return (0);
-	return (ptr);
+	if (c >= 97 && c <= 122)
+		c = c - 32;
+	return (c);
 }

@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 14:16:15 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/17 17:01:22 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/17 15:04:56 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/17 15:05:28 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+int	ft_isprint(int c)
 {
-	char *ptr;
-
-	ptr = (char *)ft_memalloc(size + 1);
-	if (!ptr)
-		return (0);
-	return (ptr);
+	if (c > 31 && c < 127)
+		return (1);
+	return (0);
 }

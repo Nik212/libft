@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 11:03:18 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/11 16:53:49 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/17 14:55:23 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	char *lastd;
 	char *lasts;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	d = (char *)dest;
 	s = (char *)src;
 	if (d < s)

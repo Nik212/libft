@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 15:34:50 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/16 16:26:02 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/17 16:05:05 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int	res;
-	int	negative;
+	unsigned long long	res;
+	int					negative;
 
 	negative = 1;
 	res = 0;
@@ -31,5 +31,7 @@ int	ft_atoi(const char *str)
 		res = res * 10 + (*str - 48);
 		++str;
 	}
+	if (res >= 9223372036854775807)
+		return (negative == -1 ? 0 : -1);
 	return (res * negative);
 }
