@@ -6,13 +6,13 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 15:50:02 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/16 14:09:47 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/17 18:01:31 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		num_len(int n)
+static int	num_len(int n)
 {
 	int len;
 	int nbr;
@@ -33,7 +33,7 @@ int		num_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int nbr)
+char		*ft_itoa(int nbr)
 {
 	int		value;
 	int		len;

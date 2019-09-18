@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 12:32:15 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/17 17:37:47 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/18 17:10:12 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/18 18:44:59 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t len;
+	t_list *ptr;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	ptr = NULL;
+	if (f && lst)
+	{
+		while (lst)
+		{
+			ft_lstappend(&ptr, f(lst));
+			lst = lst->next;
+		}
+	}
+	return (ptr);
 }
