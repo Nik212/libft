@@ -6,53 +6,73 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:43:45 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/13 15:48:11 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/17 18:32:24 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		num_words(char const *str, char c)
+static	int		ft_count_words(const char *str, char c)
 {
-	size_t	prev_letter;
-	size_t	count;
+	int	word;
+	int	i;
 
-	count = 0;
-	prev_letter = 0;
-	while (*str)
+	i = 0;
+	word = 0;
+	if (!str)
+		return (0);
+	while (str[i])
 	{
-		if (*str == c && prev_letter == 0)
-			count++;
-		prev_letter = (*str == c) ? 0 : 1;
-		str++;
+		if (str[i] == c && str[i + 1] != c)
+			word++;
+		i++;
 	}
-	return (count);
+	if (str[0] != '\0')
+		word++;
+	return (word);
 }
 
-char	**ft_strsplit(char const *s, char c)
+static	char	*ft_word(const char *str, char c, int *i)
 {
-	char **array;
-	size_t ar_idx;
-	size_t prev_letter;
-	size_t i;
-	size_t start;
+	char	*s;
+	int		k;
 
-	if (!s)
-		return (0);
-	if (!(array = (char **)ft_memalloc(num_words(s, c) * sizeof(char *))))
-		return (0);
-	i = -1;
-	prev_letter = 0;
-	ar_idx = 0;
-	while (s[i++])
+	if (!(s = (char*)malloc(sizeof(s) * (ft_strlen(str)))))
+		return (NULL);
+	k = 0;
+	while (str[*i] != c && str[*i])
 	{
-		if (prev_letter && s[i] == c)
-			array[ar_idx++] = ft_strsub(s, start, i - start);
-		if (!prev_letter && s[i] != c)
-			start = i;
-		prev_letter = (s[i] == c) ? 0 : 1;
+		s[k] = str[*i];
+		k++;
+		*i += 1;
 	}
-	if (prev_letter)
-		array[ar_idx] = ft_strsub(s, start, i - start);
-	return (array);
+	s[k] = '\0';
+	while (str[*i] == c && str[*i])
+		*i += 1;
+	return (s);
+}
+
+char			**ft_strsplit(char const *str, char c)
+{
+	int		i;
+	int		j;
+	int		wrd;
+	char	**s;
+
+	i = 0;
+	j = 0;
+	wrd = ft_count_words(str, c);
+	if (!wrd && !str)
+		return (NULL);
+	if (!(s = (char **)malloc(sizeof(s) * (wrd + 2))))
+		return (NULL);
+	while (str[i] == c && str[i])
+		i++;
+	while (j < wrd && str[i])
+	{
+		s[j] = ft_word(str, c, &i);
+		j++;
+	}
+	s[j] = NULL;
+	return (s);
 }

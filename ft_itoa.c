@@ -6,13 +6,13 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 15:50:02 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/13 16:18:16 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/17 18:01:31 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		num_len(int n)
+static int	num_len(int n)
 {
 	int len;
 	int nbr;
@@ -25,7 +25,7 @@ int		num_len(int n)
 		len += 1;
 	}
 	nbr = n;
-	if (nbr < 0)
+	if (nbr <= 0)
 	{
 		len += 1;
 		nbr *= -1;
@@ -33,27 +33,23 @@ int		num_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int value)
+char		*ft_itoa(int nbr)
 {
-	size_t	len;
-	long	nbr;
-	char	*pointer;
-	char	*base_string;
+	int		value;
+	int		len;
+	char	*ptr;
 
-	nbr = value;
-	base_string = "0123456789ABCDEF";
-	len = num_len(value);
-	if (value == 0)
-		return ("0");
-	if (!(pointer = (char *)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	pointer[len] = '\0';
-	while (nbr)
+	value = nbr;
+	len = num_len(nbr);
+	ptr = (char *)ft_memalloc(num_len(value) + 1);
+	if (!(ptr))
+		return (0);
+	while (len--)
 	{
-		pointer[--len] = base_string[nbr % 10];
+		ptr[len] = (nbr < 0) ? (nbr % 10) * -1 + 48 : (nbr % 10) + 48;
 		nbr /= 10;
 	}
 	if (value < 0)
-		pointer[0] = '-';
-	return (pointer);
+		ptr[0] = '-';
+	return (ptr);
 }

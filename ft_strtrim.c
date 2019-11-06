@@ -6,18 +6,18 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:19:43 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/13 13:42:15 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/17 18:04:27 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		check_whitespace(char c)
+static int		check_whitespace(char c)
 {
 	return (c == '\t' || c == ' ' || c == '\n');
 }
 
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	char	*new_str;
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:04:10 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/13 13:18:35 by slupe            ###   ########.fr       */
+/*   Updated: 2019/09/17 17:39:39 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char *new_str;
 	char *str;
 
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (0);
 	new_str = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
 	str = new_str;

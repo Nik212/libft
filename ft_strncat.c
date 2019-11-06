@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slupe <slupe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 12:32:15 by slupe             #+#    #+#             */
-/*   Updated: 2019/09/17 17:37:47 by slupe            ###   ########.fr       */
+/*   Created: 2019/09/14 16:44:43 by slupe             #+#    #+#             */
+/*   Updated: 2019/09/19 12:30:21 by slupe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strncat(char *d, const char *s, size_t n)
 {
-	size_t len;
+	char *a;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	a = d;
+	d += ft_strlen(d);
+	while (n && *s)
+	{
+		*d++ = *s++;
+		n--;
+	}
+	*d++ = 0;
+	return (a);
 }
